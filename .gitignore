@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment files (NEVER commit these)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Next.js
+.next/
+out/
+build/
+
+# Prisma generated
+real-estate-app/node_modules/
+real-estate-app/.prisma/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo

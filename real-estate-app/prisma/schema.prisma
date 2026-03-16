@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Deal {
+  id             Int       @id @default(autoincrement())
+  dealKey        String    @unique @map("deal_key")
+  cityName       String?   @map("city_name")
+  fullAddress    String?   @map("full_address")
+  displayAddress String?   @map("display_address")
+  gush           String?
+  dealDate       DateTime? @map("deal_date") @db.Date
+  dealDatetime   DateTime? @map("deal_datetime") @db.Timestamptz
+  dealNature     String?   @map("deal_nature")
+  assetType      String?   @map("asset_type")
+  rooms          Decimal?  @db.Decimal(4, 1)
+  floor          Int?
+  buildingFloors Int?      @map("building_floors")
+  areaSqm        Decimal?  @map("area_sqm") @db.Decimal(10, 2)
+  dealAmount     BigInt?   @map("deal_amount")
+  pricePerSqm    Decimal?  @map("price_per_sqm") @db.Decimal(12, 2)
+  buildingYear   Int?      @map("building_year")
+  yearBuilt      Int?      @map("year_built")
+  isNewProject   Boolean?  @map("is_new_project")
+  projectName    String?   @map("project_name")
+  trendFormat    String?   @map("trend_format")
+  trendNegative  Boolean?  @map("trend_negative")
+  polygonId      String?   @map("polygon_id")
+  rawJson        Json?     @map("raw_json")
+  scrapedAt      DateTime  @default(now()) @map("scraped_at") @db.Timestamptz
+  updatedAt      DateTime  @default(now()) @map("updated_at") @db.Timestamptz
+
+  @@index([cityName])
+  @@index([dealDate])
+  @@index([rooms])
+  @@index([dealAmount])
+  @@index([gush])
+  @@index([polygonId])
+  @@map("deals")
+}
