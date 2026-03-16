@@ -1,14 +1,7 @@
 import type { Metadata } from 'next';
-import { Heebo } from 'next/font/google';
 import Link from 'next/link';
 import { Chatbot } from '@/components/Chatbot';
 import './globals.css';
-
-const heebo = Heebo({
-  subsets: ['hebrew', 'latin'],
-  variable: '--font-heebo',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: 'נדל"ן ישראל — פלטפורמת השקעות נדל"ן',
@@ -18,13 +11,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl" className={heebo.variable}>
+    <html lang="he" dir="rtl">
       <body>
         <nav className="bg-white border-b border-gray-200 sticky top-0 z-40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
               <Link href="/" className="text-xl font-bold text-brand-700">
-                🏠 נדל"ן ישראל
+                🏠 נדל&quot;ן ישראל
               </Link>
               <div className="flex items-center gap-6 text-sm font-medium text-gray-600">
                 <Link href="/compare" className="hover:text-brand-600 transition-colors">
@@ -49,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <footer className="border-t border-gray-200 mt-16 py-8 text-center text-sm text-gray-400">
           <p>
-            הנתונים מבוססים על עסקאות שדווחו לרשות המסים בישראל (נדל"ן.gov.il).
+            הנתונים מבוססים על עסקאות שדווחו לרשות המסים בישראל (נדל&quot;ן.gov.il).
             <br />
             המידע לצרכי למידה בלבד ואינו מהווה ייעוץ השקעות.
           </p>
